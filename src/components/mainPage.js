@@ -8,7 +8,7 @@ import { NavLink,useParams } from "react-router-dom";
 import TweetBox from "./Tweeting-box";
 
 
-export default function MainPage() {
+export default function MainPage({MyUser,loading5}) {
 
     const {api,loading} = useContext(APIContext);
 
@@ -27,7 +27,7 @@ export default function MainPage() {
     ) : (
         <>
         <div className="right-side-twitties">
-        <TweetBox/>
+        <TweetBox MyUser={MyUser} loading5={loading5}/>
         {api && api.posts && api.posts.map((item, idx) => {
         return (
         <div className="twitty-container" key={item._id} id={item._id}>

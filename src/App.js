@@ -1,7 +1,7 @@
 
 import './components/Style.css';
 
-import {useEffect,useContext } from "react";
+import {useEffect,useState } from "react";
 import { NavLink } from "react-router-dom";
 import {Routes, Route } from "react-router-dom";
 import MainPage from "./components/mainPage";
@@ -10,12 +10,13 @@ import AllUsers from "./components/allUsers";
 import TweetPage from "./components/tweetPage";
 import Searchbar from "./components/searchbar";
 import SearchPage from "./components/searchpPage";
-import {APIContext} from './components/APIFetch';
+
 
 
 function App() {
 
-  const {MyUser,setMyUser} = useContext(APIContext)
+  const [MyUser, setMyUser] = useState({});
+  const [loading5, setLoading5] = useState(true);
 
   useEffect(() => {
     const fetchMyUser = async () => {
@@ -29,7 +30,7 @@ function App() {
             const data = await response.json();
             console.log("MY user data ✔",data)
             setMyUser(data.user);
-            
+            setLoading5(false)
             // console.log("data.user",data.user)
         } catch (error) {
             console.log(error);
@@ -69,7 +70,7 @@ function App() {
         </div>
         
       <Routes>
-        <Route  path="/" element={<MainPage/>} />
+        <Route  path="/" element={<MainPage MyUser={MyUser} loading5={loading5}/>} />
         <Route  path="/post/:postId" element={<TweetPage/>} />
         <Route  path="/user/:userId" element={<UserPage/>} />
         <Route  path="/search/:searchValue" element={<SearchPage/>} />

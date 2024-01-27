@@ -1,16 +1,17 @@
 import {useContext, useEffect,useState } from "react";
 
 import './Style.css';
-// import SyncLoader from "react-spinners/ClockLoader";
+import SyncLoader from "react-spinners/ClockLoader";
 import {APIContext} from './APIFetch';
 // import DateCorrector from './DateCorrector';
 import { NavLink,useParams } from "react-router-dom";
 
 
-export default function MainPage() {
+export default function TweetBox({MyUser,loading5}) {
 
-    const {api,allUsers} = useContext(APIContext);
+    const {api} = useContext(APIContext);
     const [TweetText, setTweetText] = useState("");
+
 
 
         const PostData = async () => {
@@ -47,17 +48,30 @@ export default function MainPage() {
         }
 
 
+
     return (
 <>
     <div className="selected-user-container" >
+    
+    {loading5 ? (
+        <SyncLoader
+            color="white"
+            cssOverride={{ margin: "auto" }}
+            loading
+            size={60}
+        />
+    ) : (
+        <>
         <div className="tweet-user">
-        <NavLink to={`/user/${allUsers.users[9]._id}`}>
-        <img id="text-box-Img"  src={allUsers.users[9].image} alt=""/>
+        <NavLink to={`/user/${MyUser._id}`}>
+        <img id="text-box-Img"  src={MyUser.image} alt=""/>
         </NavLink>
-        <NavLink to={`/user/${allUsers.users[9]._id}`}>
-        <span>{allUsers.users[9].username}</span>
+        <NavLink to={`/user/${MyUser._id}`}>
+        <span>{MyUser.username}</span>
         </NavLink>
         </div>
+        </>
+        )}
         <div className="tweet-text-box">
             <form onSubmit={handleSubmit}>
                 <textarea className="tweet-box"
@@ -72,7 +86,7 @@ export default function MainPage() {
         </div>
         <div className="empty-div">
         </div>
-        </div>
+    </div>
 
     <hr/>
     <br/>
