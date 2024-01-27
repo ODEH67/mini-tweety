@@ -1,20 +1,21 @@
-.App {
+/* .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(51, 252, 185);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header h3{
+  color: black;
+  margin: 0;
+  padding: 1em;
 }
 
-.App-header {
-  background-color: #282c34;
+.App-body {
+  background-color: #2b303b;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,15 +25,48 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+.tweet-container span {
+  font-size: 0.7em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+.tweet-container img {
+  height: 1.7em;
 }
+
+#userpageImg {  
+  height: 3em;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 3px solid #00b389;
+  background: rgb(255, 255, 255);
+  text-align: center;
+  color: #00b389;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.search {
+  width: 100%;
+  display: flex;
+}
+
+.searchQuery {
+  width: 100%;
+  border: 3px solid #00b389;
+  border-right: none;
+  padding: 5px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #000000;
+}
+
+.wrap{
+  width: 30%;
+} */
