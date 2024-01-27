@@ -1,7 +1,7 @@
 import {useContext, useEffect,useState } from "react";
 import SyncLoader from "react-spinners/ClockLoader";
-import {APIContext} from './APIFetch';
-import { NavLink,useParams } from "react-router-dom";
+// import {APIContext} from './APIFetch';
+import { NavLink } from "react-router-dom";
 
 
 export default function MainPage() {
