@@ -1,15 +1,15 @@
-import {useContext, useEffect,useState } from "react";
+import {useContext,useState } from "react";
 
 import './Style.css';
 import SyncLoader from "react-spinners/ClockLoader";
-import {APIContext} from './APIFetch';
+// import {APIContext} from './APIFetch';
 // import DateCorrector from './DateCorrector';
 import { NavLink,useParams } from "react-router-dom";
 
 
 export default function TweetBox({MyUser,loading5}) {
 
-    const {api} = useContext(APIContext);
+    // const {api} = useContext(APIContext);
     const [TweetText, setTweetText] = useState("");
 
 
@@ -23,7 +23,7 @@ export default function TweetBox({MyUser,loading5}) {
                 'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    owner: api.posts[4].owner._id,
+                    owner: MyUser._id,
                     text: TweetText
                 })
                 })
