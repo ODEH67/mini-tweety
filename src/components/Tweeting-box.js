@@ -1,15 +1,15 @@
 import {useContext, useEffect,useState } from "react";
 
 import './Style.css';
-import SyncLoader from "react-spinners/ClockLoader";
+// import SyncLoader from "react-spinners/ClockLoader";
 import {APIContext} from './APIFetch';
-import DateCorrector from './DateCorrector';
+// import DateCorrector from './DateCorrector';
 import { NavLink,useParams } from "react-router-dom";
 
 
 export default function MainPage() {
 
-    const {api} = useContext(APIContext);
+    const {api,allUsers} = useContext(APIContext);
     const [TweetText, setTweetText] = useState("");
 
 
@@ -51,8 +51,12 @@ export default function MainPage() {
 <>
     <div className="selected-user-container" >
         <div className="tweet-user">
-        <img id="text-box-Img"  src={api.posts[4].owner.image} alt=""/>
-        <span>{api.posts[4].owner.username}</span>
+        <NavLink to={`/user/${allUsers.users[9]._id}`}>
+        <img id="text-box-Img"  src={allUsers.users[9].image} alt=""/>
+        </NavLink>
+        <NavLink to={`/user/${allUsers.users[9]._id}`}>
+        <span>{allUsers.users[9].username}</span>
+        </NavLink>
         </div>
         <div className="tweet-text-box">
             <form onSubmit={handleSubmit}>

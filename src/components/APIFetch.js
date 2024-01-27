@@ -15,8 +15,10 @@ export default function APIFetch({children}) {
 
     const [loading, setLoading] = useState(true);
     const [api, setApi] = useState({});
+    const [allUsers, setAllUsers] = useState({});
     const [tweet, setTweet] = useState({});
     const [apiSearch, setApiSearch] = useState({});
+    const [MyUser, setMyUser] = useState({});
     const [searchedQuery, setSearchedQuery] = useState("");
 
     console.log("api",api)
@@ -44,7 +46,7 @@ const DataFetch = async () => {
 
 
     return (
-        <APIContext.Provider value={{api,loading,tweet,setTweet,setApiSearch,apiSearch,searchedQuery,setSearchedQuery}}>
+        <APIContext.Provider value={{api,loading,tweet,setTweet,setApiSearch,apiSearch,searchedQuery,setSearchedQuery,setAllUsers,allUsers,MyUser,setMyUser}}>
             {children}
     </APIContext.Provider>
     )

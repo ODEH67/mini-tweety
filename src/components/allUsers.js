@@ -2,15 +2,16 @@ import {useContext, useEffect,useState } from "react";
 import SyncLoader from "react-spinners/ClockLoader";
 // import {APIContext} from './APIFetch';
 import { NavLink } from "react-router-dom";
-
+import {APIContext} from './APIFetch';
 
 export default function MainPage() {
 
     // const {loading,setLoading} = useContext(APIContext);
     const [loading4, setLoading4] = useState(true);
     const [counter, setcounter] = useState(0);
-    const [allUsers, setAllUsers] = useState({});
 
+    const {allUsers,setAllUsers} = useContext(APIContext)
+    
     useEffect(() => {
         const DataFetch = async () => {
         
@@ -53,7 +54,7 @@ export default function MainPage() {
             <div className="body_elements">
             {allUsers.users && allUsers.users.map((user, indx) => {
             return (
-                <div className="selected-user-container" id={user._id}>
+                <div className="selected-user-container" key={user._id} id={user._id}>
                     <NavLink className="tweet-user" to={`/user/${user._id}`}>
                     <img id="userpageImg" src={user.image} alt=""/>
                     </NavLink>

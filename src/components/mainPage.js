@@ -42,9 +42,9 @@ export default function MainPage() {
             <span className="time-span"><DateCorrector date={item.date}/></span>
             <hr/>
             <ul className="like-comment-share">
-              <li>Likes</li>
-              <li>Comments</li>
-              <li>Share</li>
+                <li>Likes</li>
+                <li>Comments</li>
+                <li>Share</li>
             </ul>
         </div>
         )}

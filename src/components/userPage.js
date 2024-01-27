@@ -9,8 +9,8 @@ export default function TweetPage() {
 
     const [loading1, setLoading1] = useState(true);
     const [user, setUser] = useState({});
+    
     const page = useParams();
-
     // console.log("page.id",page.postId)
     // console.log("user",user)
     // console.log("tweet loading",loading)
